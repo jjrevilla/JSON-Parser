@@ -116,5 +116,34 @@ var json_parse = function () {
     return undefined
   }
 
-  
+  var white = function () {
+    while (ch && ch <= ' ') {
+      ch = next()
+    }
+  }
+
+  var word = function () {
+    switch (ch) {
+      case 't':
+        next('t')
+        next('r')
+        next('u')
+        return true
+      case 'f':
+        next('f')
+        next('a')
+        next('l')
+        next('a')
+        next('l')
+        return false
+      case 'n':
+        next('n')
+        next('u')
+        next('l')
+        next('l')
+        return null
+    }
+    error("Unexpected '" + ch + "'")
+    return undefined
+  }
 }()
